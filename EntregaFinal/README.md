@@ -1,29 +1,27 @@
-¡Perfecto! Entonces respetando tu **estructura actual de `index.js`**, aquí te dejo un **README.md listo para colocar en tu carpeta de proyecto**, explicado y adaptado a tu código tal cual lo tenés:
-
-````markdown
-# 📦 EntregaFinal - CLI de Productos
+# EntregaFinal - CLI de Productos
 
 Este proyecto es una **aplicación de línea de comandos (CLI)** en Node.js que permite interactuar con la [FakeStore API](https://fakestoreapi.com/).  
-Permite **obtener, crear y eliminar productos** directamente desde la terminal usando tu `index.js`.
+Permite **obtener, crear y eliminar productos** directamente desde la terminal usando `index.js`.
 
 ---
 
-## ⚡ Requisitos
+## Requisitos
 
-- Node.js **v18 o superior** (usa `fetch` global)  
-- Conexión a Internet  
+- Node.js **v18 o superior** (usa `fetch` global).  
+- Conexión a Internet.
 
 ---
 
-## 📥 Instalación
+## Instalación
 
 1. Clonar el repositorio:
+
 ```bash
 git clone <url-del-repositorio>
 cd EntregaFinal
 ````
 
-2. Instalar dependencias si hay alguna (por ahora `fetch` es global):
+2. Instalar dependencias si hubiera alguna (por ahora `fetch` es global):
 
 ```bash
 npm install
@@ -31,9 +29,9 @@ npm install
 
 ---
 
-## 🛠️ Uso
+## Uso
 
-Todos los comandos se ejecutan desde la terminal con:
+Ejecutar comandos desde la terminal con:
 
 ```bash
 node index.js <COMANDO> [ARGUMENTOS]
@@ -51,7 +49,7 @@ node index.js <COMANDO> [ARGUMENTOS]
 
 ---
 
-## ✅ Ejemplos de salida
+## Ejemplos de salida
 
 **Obtener todos los productos:**
 
@@ -77,7 +75,7 @@ Eliminamos el item con id: 21
 
 ---
 
-## ⚠️ Validaciones
+## Validaciones
 
 * `POST` requiere exactamente **tres argumentos**: título, precio y categoría.
 * `DELETE` requiere un **ID numérico**.
@@ -89,18 +87,3 @@ Debes ingresar un comando. Ejemplo: GET | POST | DELETE
 ```
 
 ---
-
-## 💡 Notas
-
-* Todo el código está actualmente **en `index.js`**, siguiendo tu estructura actual.
-* Se recomienda Node ≥18 para usar `fetch` global.
-* Ideal para practicar **Node.js, async/await y CLI**.
-
-```
-
----
-
-Si querés, puedo hacer una **versión aún más visual**, con **emojis y colores por sección**, para que quede muy atractiva en GitHub y destaque cada comando.  
-
-¿Querés que haga esa versión?
-```
