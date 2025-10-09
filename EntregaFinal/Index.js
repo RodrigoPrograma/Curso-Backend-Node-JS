@@ -1,4 +1,8 @@
 const argumentos = process.argv.slice(2);
+
+if (argumentos.length === 0) {
+    mostrarError("Debes ingresar un comando. Ejemplo: GET | POST | DELETE");
+}
 //Obtener todos los productos
 if (argumentos[0] === 'GET' && argumentos.length === 1) {
     async function fetchdata() {
@@ -7,7 +11,7 @@ if (argumentos[0] === 'GET' && argumentos.length === 1) {
             const data = await response.json()
             console.log(data)
         } catch (error) {
-            console.error("Error fetching data:", error);
+            console.error("Error al obtener los productos:", error);
         }
     }
     fetchdata()
@@ -25,21 +29,20 @@ if (argumentos[0] === 'GET' && argumentos.length === 1) {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        title: argumentos[1],
-                        id: 21,
-                        price: argumentos[2],
-                        description: "This is a new product",
+                        title,
+                        price,
+                        description: "Nuevo producto",
                         image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-                        category: argumentos[3],
+                        category
                     })
                 })
                 const data = await response.json()
-                console.log(data)
+                console.log("Producto creado:", data)
             } catch (error) {
-                console.error("Error posting data:", error);
+                console.error("Error al crear el producto:", error);
             }
         }
-        postdata()
+        postdata(argumentos[1], argumentos[2], argumentos[3])
     }
     //Consulta por ID
     else if (argumentos[0] === 'GET' && argumentos.length > 1) {
