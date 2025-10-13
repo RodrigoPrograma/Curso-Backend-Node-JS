@@ -77,10 +77,13 @@ Eliminamos el item con id: 21
 
 ## Validaciones
 
-* `POST` requiere exactamente **tres argumentos**: título, precio y categoría.
-* `DELETE` requiere un **ID numérico**.
-* `GET` puede recibir un ID numérico o la ruta `products/<id>`.
-* Si no ingresás ningún comando, el programa mostrará un error:
+- `POST` requiere exactamente **tres argumentos**: título, precio y categoría.
+
+- `DELETE` requiere un **ID numérico**.
+
+- `GET` puede recibir un ID numérico o la ruta `products/<id>`.
+
+** Si no ingresás ningún comando, el programa mostrará un error:
 
 ```text
 Debes ingresar un comando. Ejemplo: GET | POST | DELETE
