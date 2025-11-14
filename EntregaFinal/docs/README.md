@@ -21,7 +21,7 @@ git clone <url-del-repositorio>
 cd EntregaFinal
 ````
 
-2. Instalar dependencias si hubiera alguna (por ahora `fetch` es global):
+2 Instalar dependencias si hubiera alguna (por ahora `fetch` es global):
 
 ```bash
 npm install

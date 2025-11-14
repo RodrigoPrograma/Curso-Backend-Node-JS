@@ -4,7 +4,7 @@ import {
     createProduct,
     deleteProduct
 } from '../Services/productService.js';
-import { mostrarError} from "../Services/utils/errorHandler.js";
+import { mostrarError } from "../Services/utils/errorHandler.js";
 
 export async function handleCommands(args) {
     if (args.length === 0) {
@@ -39,7 +39,7 @@ export async function handleCommands(args) {
                 if (rest.length === 1 && rest[0].startsWith('products/')) {
                     const id = rest[0].split("/")[1];
                     const result = await deleteProduct(id);
-                    console.log("Producto eliminado:", result);
+                    console.log({ message: "Producto eliminado correctamente. ⚠️ A futuro deberás confirmar esta acción antes de eliminar definitivamente.", result });
                 } else {
                     mostrarError("Comando DELETE inválido. Uso: DELETE products/<id>");
                 }

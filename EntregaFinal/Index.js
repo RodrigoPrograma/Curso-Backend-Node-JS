@@ -1,4 +1,4 @@
-import { handleCommands } from "./controllers/productController.js";
+import { handleCommands } from "./src/controllers/productController.js";
 
 const argumentos = process.argv.slice(2);
 handleCommands(argumentos);
