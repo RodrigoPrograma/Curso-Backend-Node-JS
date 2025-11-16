@@ -4,17 +4,17 @@
 
 - [x] Creación de un **index.js** como archivo de entrada.  
 - [x] Configuración de **NPM** y **package.json** con `"type": "module"`.  
-- [ ] Instalación de dependencias: **CORS**, **body-parser**, **dotenv**, **firebase** y **jsonwebtoken (JWT)**.
+- [x] Instalación de dependencias: **CORS**, **body-parser**, **dotenv**, **firebase** y **jsonwebtoken (JWT)**.
 
 ---
 
 ## 🚀 Servidor
 
-- [ ] Creación de un **servidor con Express** y configuración en *index.js*.  
-- [ ] Configurar **CORS** para habilitar peticiones de origen cruzado.  
-- [ ] Configurar **body-parser** como middleware para interpretar los *body* en formato JSON.  
-- [ ] Establecer **middleware de manejo de errores** (400, 401, 403, 404, 500).  
-- [ ] Crear un archivo **.env** para las variables de entorno.
+- [x] Creación de un **servidor con Express** y configuración en *index.js*.  
+- [x] Configurar **CORS** para habilitar peticiones de origen cruzado.  
+- [x] Configurar **body-parser** como middleware para interpretar los *body* en formato JSON.  
+- [x] Establecer **middleware de manejo de errores** (400, 401, 403, 404, 500).  
+- [x] Crear un archivo **.env** para las variables de entorno.
 
 ---
 
@@ -53,5 +53,5 @@
 
 📘 **Estado general:**
 
-- ✅ Completado: 2  
-- ⏳ Pendiente: 18  
+- ✅ Completado: 3  
+- ⏳ Pendiente: 17  
