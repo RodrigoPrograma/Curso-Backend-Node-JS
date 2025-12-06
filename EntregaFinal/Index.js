@@ -1,8 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
-import { db, auth } from './src/config/firebase.js';
 import ProductRoutes from './src/routes/products.routes.js';
 import AuthRoutes from './src/routes/auth.routes.js';
 import { notFound, errorHandler } from './src/middleware/errorHandler.js';
@@ -12,21 +10,21 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-    origin: '*',
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
+    origin: ['http://localhost:3000', 'https://midominio.com'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+    maxAge: 86400,
+    optionsSuccessStatus: 204
 }));
 
-app.use(bodyParser.json());
+app.use(express.json());
 
 app.use('/api/products', ProductRoutes);
 app.use('/api/auth', AuthRoutes);
 
-app.get('/ping', (req, res) => {
-    res.send('pong');
-});
-
 app.get("/test-error", (req, res, next) => {
-    const error = new Error("Error controlado 🔥");
+    const error = new Error("Error controlado");
     error.status = 400;
     next(error);
 });

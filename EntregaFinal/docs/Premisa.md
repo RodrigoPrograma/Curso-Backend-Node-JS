@@ -20,26 +20,26 @@
 
 ## 🛣️ Rutas
 
-- [ ] Crear la **capa de rutas** del proyecto.  
-- [ ] Definir rutas para productos en **products.routes.js** (`GET`, `POST`, `PUT`, `DELETE`).  
-- [ ] Definir rutas para autenticación en **auth.routes.js** (`POST`).  
+- [x] Crear la **capa de rutas** del proyecto.  
+- [x] Definir rutas para productos en **products.routes.js** (`GET`, `POST`, `PUT`, `DELETE`).  
+- [x] Definir rutas para autenticación en **auth.routes.js** (`POST`).  
 
 ---
 
 ## 🧠 Controladores y Servicios
 
-- [ ] Crear la **capa de controladores** correspondiente a cada ruta.  
-- [ ] Crear la **capa de servicios** que responda a los controladores.  
+- [x] Crear la **capa de controladores** correspondiente a cada ruta.  
+- [x] Crear la **capa de servicios** que responda a los controladores.  
 
 ---
 
 ## 💾 Acceso a Datos
 
-- [ ] Crear la **capa de modelos**.  
-- [ ] Crear un proyecto de **Firestore** en Firebase.  
-- [ ] Configurar la conexión a la base de datos de Firestore.  
-- [ ] Utilizar la instancia de Firebase creada y desarrollar los métodos necesarios para la interacción con la base de datos.  
-- [ ] Conectar los **servicios con los modelos**.  
+- [x] Crear la **capa de modelos**.  
+- [x] Crear un proyecto de **Firestore** en Firebase.  
+- [x] Configurar la conexión a la base de datos de Firestore.  
+- [x] Utilizar la instancia de Firebase creada y desarrollar los métodos necesarios para la interacción con la base de datos.  
+- [x] Conectar los **servicios con los modelos**.  
 
 ---
 
@@ -53,5 +53,5 @@
 
 📘 **Estado general:**
 
-- ✅ Completado: 3  
-- ⏳ Pendiente: 17  
+- ✅ Completado: 18  
+- ⏳ Pendiente: 3  

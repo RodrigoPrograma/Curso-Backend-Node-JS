@@ -1,53 +1,68 @@
+import { error } from 'console';
 import {
-    getAllProducts,
-    getProductById,
-    createProduct,
-    deleteProduct
-} from '../Services/productService.js';
-import { mostrarError } from "../Services/utils/errorHandler.js";
+    getAllProductsService,
+    getProductByIdService,
+    addProductService,
+    updateProductService,
+    deleteProductService
+} from '../services/productService.js';
 
-export async function handleCommands(args) {
-    if (args.length === 0) {
-        return mostrarError("Debes ingresar un comando. Ejemplo: GET | POST | DELETE");
-    }
-    const [command, ...rest] = args;
 
+export async function getAllProductsController(req, res) {
     try {
-        switch (command) {
-            case 'GET':
-                if (rest.length === 0) {
-                    const products = await getAllProducts();
-                    console.log(products);
-                } else if (rest[0].startsWith('products/')) {
-                    const id = rest[0].split("/")[1];
-                    const product = await getProductById(id);
-                    console.log(product);
-                } else {
-                    mostrarError("Comando GET inválido. Uso: GET o GET products/<id>");
-                }
-                break;
-            case 'POST':
-                if (rest.length !== 3) {
-                    mostrarError("Comando POST inválido. Uso: POST products/<id> <name> <price>");
-                } else {
-                    const [title, price, category] = rest;
-                    const newProduct = await createProduct({ title, price, category });
-                    console.log("Producto creado:", newProduct);
-                }
-                break;
-            case 'DELETE':
-                if (rest.length === 1 && rest[0].startsWith('products/')) {
-                    const id = rest[0].split("/")[1];
-                    const result = await deleteProduct(id);
-                    console.log({ message: "Producto eliminado correctamente. ⚠️ A futuro deberás confirmar esta acción antes de eliminar definitivamente.", result });
-                } else {
-                    mostrarError("Comando DELETE inválido. Uso: DELETE products/<id>");
-                }
-                break;
-            default:
-                mostrarError("Comando inválido. Uso: GET | POST | DELETE");
-        }
+        const products = await getAllProductsService();
+        res.json(products);
     } catch (error) {
-        mostrarError("Error en el servidor");
+        res.status(500).json({ error: "Error al obtener todos los productos" });
+    }
+} 
+
+export async function getProductByIdController(req, res) {
+    try {
+        const {id} = req.params;
+        const product = await getProductByIdService(id);
+        
+        if (!product) {
+            return res.status(404).json({ error: "Producto no encontrado" });
+        }
+        res.json(product);
+    } catch (error) {
+        res.status(500).json({ error: "Error al obtener el producto" });
+    }
+}
+
+export async function addProductController(req, res) {
+    try {
+        const productData = req.body;
+        const newProduct = await addProductService(productData);
+        res.status(201).json({
+            message: "Producto creado correctamente con el id " + newProduct.id,
+            product: newProduct 
+        });
+    } catch (error) {
+        res.status(500).json({ error: "Error al crear el producto" });
+    }
+}
+
+export async function updateProductController(req, res) {
+    try {
+        const { id } = req.params;
+        const productData = req.body;
+
+        const updateProduct = await updateProductService(id, productData);
+        res.json(updateProduct);
+    }
+    catch(error){
+        res.status(error.status || 500).json ({ error: error.message });
+    }
+}
+
+export async function deleteProductController(req, res) {
+    try {
+        const {id} = req.params;
+        await deleteProductService(id);
+        res.json({ message: "Producto eliminado correctamente" });
+    } catch (error) {
+        res.status(error.status || 500).json({ error: error.message });
     }
 }
