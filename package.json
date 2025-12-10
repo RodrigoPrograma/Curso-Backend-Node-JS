@@ -1,0 +1,18 @@
+{
+  "name": "curso-backend-node",
+  "version": "1.0.0",
+  "description": "Trabajo practico final de Talento Tech",
+  "main": "../EntregaFinal/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node Index.js"
+  },
+  "keywords": [],
+  "author": "Rodrigo Alonzo",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "node": "^24.9.0"
+  }
+}
