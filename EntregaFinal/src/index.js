@@ -10,12 +10,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-    origin: ['http://localhost:3000', 'https://midominio.com'],
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
-    maxAge: 86400,
-    optionsSuccessStatus: 204
+    origin: '*'
 }));
 
 app.use(express.json());
@@ -32,3 +27,5 @@ app.get("/test-error", (req, res, next) => {
 app.use(notFound);
 app.use(errorHandler);
 
+
+export default app;
