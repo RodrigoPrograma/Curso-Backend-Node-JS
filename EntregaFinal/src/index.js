@@ -1,9 +1,9 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import ProductRoutes from './src/routes/products.routes.js';
-import AuthRoutes from './src/routes/auth.routes.js';
-import { notFound, errorHandler } from './src/middleware/errorHandler.js';
+import ProductRoutes from './routes/products.routes.js';
+import AuthRoutes from './routes/auth.routes.js';
+import { notFound, errorHandler } from './middleware/errorHandler.js';
 
 dotenv.config();
 
@@ -32,7 +32,3 @@ app.get("/test-error", (req, res, next) => {
 app.use(notFound);
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`El server esta corriendo en el puerto ${PORT}`);
-});
