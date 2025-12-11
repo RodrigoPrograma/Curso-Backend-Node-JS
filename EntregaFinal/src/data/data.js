@@ -1,7 +1,9 @@
-import dotenv from 'dotenv';
+import { initializeApp, getApps } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 
-import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
+// Importante: NO USES dotenv en Vercel dentro de funciones serverless
+// Vercel ya inyecta las variables automáticamente.
+// ❌ REMOVE: import dotenv from "dotenv";
 
 const firebaseConfig = {
     apiKey: process.env.FIREBASE_API_KEY,
@@ -11,7 +13,12 @@ const firebaseConfig = {
     messagingSenderId: "101309217565",
     appId: process.env.FIREBASE_APP_ID
 };
-const db = getFirestore(app);
 
-const app = !getApps().length ? initializeApp(firebaseConfig) : getApps()[0];
+// Inicializar Firebase correctamente (primero initialize, después Firestore)
+const firebaseApp = !getApps().length 
+  ? initializeApp(firebaseConfig) 
+  : getApps()[0];
+
+const db = getFirestore(firebaseApp);
+
 export { db };
