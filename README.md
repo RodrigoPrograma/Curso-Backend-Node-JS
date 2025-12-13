@@ -161,9 +161,10 @@ Crea un nuevo producto.
 
 ```json
 {
-  "name": "Producto ejemplo",
-  "price": 150,
-  "category": "general"
+  "nombre": "Ejemplo de producto",
+  "precio": 1000,
+  "categoria": "test",
+  "index": 4
 }
 ```
 
