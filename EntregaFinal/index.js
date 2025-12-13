@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import ProductRoutes from './src/routes/product.routes.js';
+import ProductRoutes from './src/routes/products.routes.js';
 import AuthRoutes from './src/routes/auth.routes.js';
 import { notFound, errorHandler } from './src/middleware/errorHandler.js';
 
